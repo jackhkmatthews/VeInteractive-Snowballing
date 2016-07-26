@@ -36,15 +36,41 @@ document.write(html);
 
 //make a canvas you like, then add loads of random numbers
 
-var html ='';
-var circle = '';
+var dimensionNumber = '';
 
-function getCircle (num) {
-	circle += '<div class="circle" id="c10" style="opacity: 0.5; margin-left: ' + num + 'px"></div>'
+function getRgbNumber() {
+  return Math.floor(Math.random() * 256 );
 }
 
-for (var i = 0; i < 100; i += 10) {
-	getCircle(i);
+function getRgbColor () {
+  var color = 'rgb(' + getRgbNumber() + ',' + getRgbNumber() + ',' + getRgbNumber() + ')';
+  return color;
 }
 
-document.write(circle);
+function getGradientValue () {
+	var gradientValue;
+	rgbColor1 = getRgbColor();
+    rgbColor2 = getRgbColor();
+    gradientValue = 'linear-gradient(' + rgbColor1 + ',' + rgbColor2 + ')';
+    return gradientValue;
+}
+
+function getPositionNumber () {
+	return Math.floor(Math.random() * 500 );
+}
+
+function getDimensionNumber () {
+	return Math.floor(Math.random() * 100 );
+}
+
+for (var i = 500; i > 0; i -= 10) {
+
+	dimensionNumber = getDimensionNumber();
+	$("#canvas").append('<div class="circle"></div>');
+	$(".circle").last().css("background", getGradientValue());
+	$(".circle").last().css("top", getPositionNumber());
+	$(".circle").last().css("left", getPositionNumber());
+	$(".circle").last().css("height", i);
+	$(".circle").last().css("width", i);
+
+}
