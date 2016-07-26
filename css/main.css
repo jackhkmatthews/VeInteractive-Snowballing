@@ -1,15 +1,23 @@
 #canvas {
-	width: 500px;
-	height: 500px;
-	border: 1px black solid;
+	width: 750px;
+	height: 750px;
 	margin: 0 auto;
 	position: relative;
+	overflow: hidden;
+/*	border: 1px black solid;*/
+}
+
+.ripple {
+	position: absolute;
+	/*border: 1px red solid;*/
+	height: 200px;
+	width: 200px;
 }
 
 .circle {
-	width: 30px;
-	height: 30px;
-	background-color: black;
-	border-radius: 400px;
+	border-radius: 50%;
 	position: absolute;
-} 
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
